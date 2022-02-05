@@ -18,7 +18,7 @@ import { Server } from "socket.io";
 	})
 	
 	io.listen(420);
-	console.log("Hello World!");
+	console.log("Server is running on port 420 #blazeit");
 }
 
 main();

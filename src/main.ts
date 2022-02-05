@@ -8,12 +8,14 @@ export default async function main(): Promise<void> {
 			origin: "*",
 		}
 	});
+	
 	io.on('connection', (socket) => {
 		console.log("a user connected");
 		socket.on('disconnect', () => {
 			console.log("user disconnected");
 		})
 		socket.on('scroll', (data) => {
+			io.emit('scroll', data.scrollTop);
 			console.log('SCROLLL', data);
 		})
 	});

@@ -1,26 +1,27 @@
 import { Server } from "socket.io";
-import { createServer } from "https";
+// import { createServer } from "https";
 
- export default async function main():Promise<void> {
-	const httpServer = createServer()
-	const io = new Server(httpServer,{
+export default async function main(): Promise<void> {
+	//const httpServer = createServer()
+	const io = new Server({
 		cors: {
 			origin: "*",
 		}
 	});
 	io.on('connection', (socket) => {
-		socket.send({
-			type: 'message',
-			data: 'Hello World'
+		console.log("a user connected");
+		socket.on('disconnect', () => {
+			console.log("user disconnected");
+		})
+		socket.on('scroll', (data) => {
+			console.log('SCROLLL', data);
 		})
 	});
-	io.on('message', ()=>{
-		return {
-			message: 'Hello World'
-		}
-	})
+
 	
-	httpServer.listen(420);
+	
+
+	io.listen(420);
 	console.log("Server is running on port 420 #blazeit");
 }
 

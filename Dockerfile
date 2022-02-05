@@ -12,4 +12,4 @@ RUN pnpm run build
 
 EXPOSE 4200
 
-CMD ["node", "./build/main.cjs"]
+CMD ["node", "./.build/main.cjs"]

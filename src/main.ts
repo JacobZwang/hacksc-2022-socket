@@ -5,25 +5,24 @@ export default async function main(): Promise<void> {
 	//const httpServer = createServer()
 	const io = new Server({
 		cors: {
-			origin: "*",
+			origin: "*"
 		}
 	});
 
-	io.on('connection', (socket) => {
+	io.on("connection", (socket) => {
 		console.log("a user connected");
 
-		socket.on('disconnect', () => {
+		socket.on("disconnect", () => {
 			console.log("user disconnected");
-		})
-		socket.on('scroll', (data) => {
-
-			socket.broadcast.emit('scroll', data.scrollTop);
-			console.log('SCROLLL', data);
-		})
-		socket.on('joinRoom', (data) => {
-			console.log('JOIN ROOM', data);
+		});
+		socket.on("scroll", (data) => {
+			socket.broadcast.emit("scroll", data.scrollTop);
+			console.log("SCROLLL", data);
+		});
+		socket.on("joinRoom", (data) => {
+			console.log("JOIN ROOM", data);
 			socket.join(data.roomId);
-			socket.emit('joinRoom', {
+			socket.emit("joinRoom", {
 				text: `Meantime we shall express our darker purpose.
 				Give me the map there. Know that we have divided
 				In three our kingdom: and 'tis our fast intent
@@ -44,14 +43,10 @@ export default async function main(): Promise<void> {
 				Where nature doth with merit challenge. Goneril,
 				Our eldest-born, speak first.`
 			});
-
-		})
+		});
 	});
 
-
-
-
-	io.listen(420);
+	io.listen(4200);
 	console.log("Server is running on port 420 #blazeit");
 }
 

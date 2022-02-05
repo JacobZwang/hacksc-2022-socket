@@ -10,6 +10,6 @@ COPY . .
 
 RUN pnpm run build
 
-EXPOSE 420
+EXPOSE 4200
 
 CMD ["node", "./build/main.cjs"]

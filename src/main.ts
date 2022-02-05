@@ -41,7 +41,7 @@ Interest of territory, cares of state,--
 Which of you shall we say doth love us most?
 That we our largest bounty may extend
 Where nature doth with merit challenge. Goneril,
-Our eldest-born, speak first.`
+Our eldest-born, speak first.`.replace(/([\n\r\s]+)/g, " ")
 			});
 		});
 	});

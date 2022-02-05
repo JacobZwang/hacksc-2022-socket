@@ -1,5 +1,5 @@
 import { Server } from "socket.io";
-export default function main() {
+ export default async function main():Promise<void> {
 	const io = new Server({
 		cors: {
 			origin: "*",

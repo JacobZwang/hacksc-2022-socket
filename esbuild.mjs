@@ -29,7 +29,9 @@ esbuild
 	})
 	.then(() => {
 		console.log(chalk.green("success :"), "built and bundled main.ts");
-		runProcess();
+		if (args["watchstart"]) {
+			runProcess();
+		}
 	});
 
 function runProcess() {

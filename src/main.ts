@@ -15,7 +15,7 @@ export default async function main(): Promise<void> {
 			console.log("user disconnected");
 		})
 		socket.on('scroll', (data) => {
-			io.emit('scroll', data.scrollTop);
+			socket.broadcast.emit('scroll', data.scrollTop);
 			console.log('SCROLLL', data);
 		})
 	});

@@ -38,11 +38,43 @@ export default async function main(): Promise<void> {
 			origin: "*"
 		}
 	});
-
 	io.on("connection", (socket) => {
 		console.log("a user connected");
 
+		socket.on("post", (data) => {
+			scripts[data.scene] = (data.script as []).filter((script) => {
+				return typeof script["Text"] == 'string';
+			}).map((script) => {
+				let typeId;
 
+				switch (script['Type']) {
+
+					case "Action":
+						typeId = 0;
+						break;
+					case "Character":
+						typeId = 1;
+						break;
+					case "Dialogue":
+						typeId = 2;
+						break;
+					case "Scene Heading":
+						typeId = 3;
+						break;
+					case "Parenthetical":
+						typeId = 4;
+						break
+					default:
+						typeId = 2;
+				}
+				return {
+					Type: typeId,
+					Text: script["Text"] as string
+				}
+			});
+			console.log('SCRIPTS', scripts['script'], Object.keys(scripts));
+
+		})
 		socket.on("disconnect", () => {
 			console.log("user disconnected");
 		});

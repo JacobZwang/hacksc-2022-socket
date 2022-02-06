@@ -1,5 +1,5 @@
 import { Server } from "socket.io";
-import { ScriptPart, ScriptType } from "../../hacksc-2022-socket/schema/script";
+import { ScriptPart, ScriptType } from "../schema/script";
 // import { createServer } from "https";
 
 export default async function main(): Promise<void> {

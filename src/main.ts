@@ -12,14 +12,13 @@ export default async function main(): Promise<void> {
 
 	io.on("connection", (socket) => {
 		console.log("a user connected");
+		
 
 		socket.on("disconnect", () => {
 			console.log("user disconnected");
 		});
-		socket.on("scroll", (data) => {
-			socket.broadcast.emit("scroll", data.scrollTop);
-			console.log("SCROLLL", data);
-		});
+
+
 		socket.on("joinRoom", (data) => {
 			console.log("JOIN ROOM", data);
 			socket.join(data.roomId);
@@ -55,7 +54,8 @@ export default async function main(): Promise<void> {
 
 		socket.on("active-word", (data) => {
 			console.log(data);
-			socket.broadcast.emit("active-word", data);
+			socket.broadcast.to(data.roomId).emit("active-word", data.word);
+			socket.broadcast.emit("active-word", data.word);
 		});
 	});
 

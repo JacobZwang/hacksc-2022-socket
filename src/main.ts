@@ -52,6 +52,11 @@ export default async function main(): Promise<void> {
 				] as ScriptPart[]
 			});
 		});
+
+		socket.on("active-word", (data) => {
+			console.log(data);
+			socket.broadcast.emit("active-word", data);
+		});
 	});
 
 	io.listen(4200);

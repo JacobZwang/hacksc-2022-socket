@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { ScriptPart, ScriptType } from "../../hacksc-2022-socket/schema/script";
 // import { createServer } from "https";
 
 export default async function main(): Promise<void> {
@@ -23,25 +24,32 @@ export default async function main(): Promise<void> {
 			console.log("JOIN ROOM", data);
 			socket.join(data.roomId);
 			socket.emit("joinRoom", {
-				text: `Meantime we shall express our darker purpose.
-Give me the map there. Know that we have divided
-In three our kingdom: and 'tis our fast intent
-To shake all cares and business from our age;
-Conferring them on younger strengths, while we
-Unburthen'd crawl toward death. Our son of Cornwall,
-And you, our no less loving son of Albany,
-We have this hour a constant will to publish
-Our daughters' several dowers, that future strife
-May be prevented now. The princes, France and Burgundy,
-Great rivals in our youngest daughter's love,
-Long in our court have made their amorous sojourn,
-And here are to be answer'd. Tell me, my daughters,--
-Since now we will divest us both of rule,
-Interest of territory, cares of state,--
-Which of you shall we say doth love us most?
-That we our largest bounty may extend
-Where nature doth with merit challenge. Goneril,
-Our eldest-born, speak first.`.replace(/([\n\r\s]+)/g, " ")
+				script: [
+					{
+						Type: ScriptType["Scene Heading"],
+						Text: "INT. REBEL BLOCKADE RUNNER - MAIN PASSAGEWAY"
+					},
+					{
+						Type: ScriptType.Action,
+						Text: "An explosion rocks the ship as two robots, Artoo-Detoo (R2-D2) and See-Threepio (C-3PO) struggle to make their way through the shaking, bouncing passageway. Both robots are old and battered. Artoo is a short, claw-armed tripod. His face is a mass of computer lights surrounding a radar eye. Threepio, on the other hand, is a tall, slender robot of human proportions. He has a gleaming bronze-like metallic surface of an Art Deco design."
+					},
+					{
+						Type: ScriptType.Action,
+						Text: "Another blast shakes them as they struggle along their way."
+					},
+					{
+						Type: ScriptType.Character,
+						Text: "THREEPIO"
+					},
+					{
+						Type: ScriptType.Dialogue,
+						Text: "Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!"
+					},
+					{
+						Type: ScriptType.Action,
+						Text: "Rebel troopers rush past the robots and take up positions in the main passageway. They aim their weapons toward the door."
+					}
+				] as ScriptPart[]
 			});
 		});
 	});

@@ -29,7 +29,67 @@ const scripts: Record<string, ScriptPart[]> = {
 		}
 	],
 	"hamlet": [],
-	"presentation": [],
+	"presentation": [
+		{
+			Type: ScriptType.Character,
+			Text: "Jason"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "Hi, I'm Jason!"
+		}, {
+			Type: ScriptType.Character,
+			Text: "Ben"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "And I'm Ben!"
+		},
+		{
+			Type: ScriptType.Character,
+			Text: "Jason"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "When our team started brainstorming for HackSC, we discussed past hackathons, and realized that presentations were a real pain in the patooty for all of us."
+		}, {
+			Type: ScriptType.Character,
+			Text: "Ben"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "Without much time for practice, and without much sleep, they were rough and disorganized — it was easy to lose track of what was going on."
+		},
+		{
+			Type: ScriptType.Character,
+			Text: "Jason"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "We wanted a new way to organize our presentations, keeping us in sync and allowing for more fluid transitions."
+		}, {
+			Type: ScriptType.Character,
+			Text: "Ben"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "Our first thought was to treat the website as a prompter, but we realized that forcing the user into a preset speed didn’t always work. Some sentences should be emphasized more, and some just brushed over."
+		},{
+			Type: ScriptType.Character,
+			Text: "Jason"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "We went through many different stages of development, and through the process, we noticed that this tool could be used for more than just hackathons. I had done theater in the past, and remembered how challenging the first several read throughs could be. This would not only smooth over that process, but would allow for more fluid acting, as the script would scroll in sync for all of us. Hence the name Scriptus."
+		}, {
+			Type: ScriptType.Character,
+			Text: "Ben"
+		},
+		{
+			Type: ScriptType.Dialogue,
+			Text: "And here’s Jacob to give a more in-depth explanation of how it works."
+		},
+	],
 }
 export default async function main(): Promise<void> {
 	//const httpServer = createServer()

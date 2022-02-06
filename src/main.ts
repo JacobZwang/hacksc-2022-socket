@@ -27,7 +27,9 @@ const scripts: Record<string, ScriptPart[]> = {
 			Type: ScriptType.Action,
 			Text: "Rebel troopers rush past the robots and take up positions in the main passageway. They aim their weapons toward the door."
 		}
-	]
+	],
+	"hamlet": [],
+	"presentation": [],
 }
 export default async function main(): Promise<void> {
 	//const httpServer = createServer()
